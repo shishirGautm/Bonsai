@@ -1,0 +1,148 @@
+:root{
+    --primary:#0f172a;
+    --secondary:#2563eb;
+    --accent:#06b6d4;
+    --light:#f8fafc;
+    --dark:#111827;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8fafc;
+    color:#333;
+}
+
+.header__inner{
+    backdrop-filter:blur(15px);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.btn-school{
+    transition:.4s ease;
+}
+
+.btn-school:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(37,99,235,.3);
+}
+
+.program__card,
+.value-card,
+.news__card,
+.faculty__card,
+.ach-home-card{
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s ease;
+}
+
+.program__card:hover,
+.value-card:hover,
+.news__card:hover,
+.faculty__card:hover,
+.ach-home-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.hero__title{
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+img{
+    max-width:100%;
+}
+
+footer{
+    background:#0f172a;
+}
+
+#scroll-top{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+    display:none;
+}
+
+        /* Basic styles for demo */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #000;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background: #111;
+            color: white;
+            padding: 20px;
+            transition: 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu__nav a {
+            display: block;
+            color: white;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+
+        .mobile-menu__social a {
+            color: white;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .mobile-menu__close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    
