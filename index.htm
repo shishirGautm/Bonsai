@@ -44,13 +44,13 @@
 
 <link rel="icon" type="image/x-icon" href="bonsai.jpeg">
 <link rel="shortcut icon" href="bonsai.jpeg">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <!-- Bootstrap 5 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <!-- Custom School CSS -->
-<link rel="stylesheet" href="https://eastpoleschool.edu.np/css/school.css?v=1777302701">
+<link rel="stylesheet" href="style.css">
 
 <!-- Dynamic Color Overrides from Admin -->
 <style>
@@ -255,8 +255,8 @@ Strategy</h1>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
-                <div class="number">120+</div>
-                <div class="label">Faculty &amp; Staff</div>
+                <div class="number">20+</div>
+                <div class="label">Services</div>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
@@ -537,54 +537,38 @@ Strategy</h1>
                 <div class="faculty__role">Design and Content</div>
             </div>
                         <div class="faculty__card" data-aos="fade-up" data-aos-delay="320">
-                <img src=""
+                <img src="bb7d3942-32f2-42a6-b114-fe19f50bb140.jpeg"
                      alt="Shivahari Bhurtel"
                      class="faculty__photo"
                     onerror="this.src='https://bonsai.com.np/images/person_1.jpg'">
-                <h4 class="faculty__name">Shivahari Bhurtel</h4>
+                <h4 class="faculty__name">Shiva Hari Bhurtel</h4>
                 <div class="faculty__role">AI & ML</div>
             </div>
                         <div class="faculty__card" data-aos="fade-up" data-aos-delay="0">
-                <img src=""
-                     alt="....."
+                <img src="038e8a6e-35f3-47ab-8f65-ab3cb7a8e381.jpeg"
+                     alt="Anish Nepal"
                      class="faculty__photo"
                      onerror="this.src='https://bonsai.com.np/images/person_1.jpg'">
-                <h4 class="faculty__name">......</h4>
+                <h4 class="faculty__name">Anish Nepal</h4>
                 <div class="faculty__role">........</div>
             </div>
                         <div class="faculty__card" data-aos="fade-up" data-aos-delay="80">
-                <img src=""
-                     alt="Ravin Shrestha"
+                <img src="469287490_907104191563423_6909333365885732176_n.jpg"
+                     alt="Pukar Parajuli"
                      class="faculty__photo"
                     onerror="this.src='https://bonsai.com.np/images/person_1.jpg'">
-                <h4 class="faculty__name">......</h4>
+                <h4 class="faculty__name">Pukar Parajuli</h4>
                 <div class="faculty__role">.........</div>
             </div>
-                        <div class="faculty__card" data-aos="fade-up" data-aos-delay="160">
-                <img src=""
-                     alt="...."
+                <div class="faculty__card" data-aos="fade-up" data-aos-delay="80">
+                <img src="7438c325-f313-4176-8ac0-5755d02b54df.jpeg"
+                     alt="Sunil Khatik"
                      class="faculty__photo"
-                     onerror="this.src='https://bonsai.com.np/images/person_1.jpg'">
-                <h4 class="faculty__name">......</h4>
-                <div class="faculty__role">......</div>
+                    onerror="this.src='https://bonsai.com.np/images/person_1.jpg'">
+                <h4 class="faculty__name">Sunil Khatik</h4>
+                <div class="faculty__role">Marketing & Growth</div>
             </div>
-                        <div class="faculty__card" data-aos="fade-up" data-aos-delay="240">
-                <img src="....."
-                     alt="...."
-                     class="faculty__photo"
-                     onerror="this.src='https://bonsai.com.np/images/person_1.jpg'">
-                <h4 class="faculty__name">.....</h4>
-                <div class="faculty__role">.....</div>
-            </div>
-                        <div class="faculty__card" data-aos="fade-up" data-aos-delay="320">
-                <img src="........"
-                     alt="...."
-                     class="faculty__photo"
-                     onerror="this.src='https://bonsai.com.np/images/person_1.jpg'">
-                <h4 class="faculty__name">.....</h4>
-                <div class="faculty__role">.......</div>
-            </div>
-                    </div>
+                      
        
     </div>
 </section>
@@ -837,6 +821,452 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePopu
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- School JS -->
-<script src="https://eastpoleschool.edu.np/js/school.js"></script>
+<script>
+    /**
+ * Bonsai Technology â€” Main JavaScript
+ */
+(function () {
+    'use strict';
+
+    // ----------------------------------------------------------------
+    // Header: scroll-shrink + hide-on-scroll-down
+    // ----------------------------------------------------------------
+    const header = document.getElementById('site-header');
+    let lastScroll = 0;
+
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const current = window.scrollY;
+            header.classList.toggle('scrolled', current > 40);
+            // Hide header when scrolling down past 200px, show on scroll up
+            if (current > 200) {
+                header.classList.toggle('header-hidden', current > lastScroll && !isMobileMenuOpen());
+            } else {
+                header.classList.remove('header-hidden');
+            }
+            lastScroll = Math.max(0, current);
+        }, { passive: true });
+    }
+
+    // ----------------------------------------------------------------
+    // Mobile Menu
+    // ----------------------------------------------------------------
+    const hamburger   = document.getElementById('hamburgerBtn');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileMenuClose');
+    const overlay     = document.getElementById('mobileOverlay');
+
+    function isMobileMenuOpen() {
+        return mobileMenu && mobileMenu.classList.contains('open');
+    }
+
+    function openMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add('open');
+        if (overlay) overlay.classList.add('open');
+        if (hamburger) { hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded', 'true'); }
+        document.body.style.overflow = 'hidden';
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        // Stagger nav links
+        mobileMenu.querySelectorAll('.mobile-menu__nav a').forEach((a, i) => {
+            a.style.opacity = '0';
+            a.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                a.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                a.style.opacity = '1';
+                a.style.transform = 'translateY(0)';
+            }, 80 + i * 60);
+        });
+    }
+
+    function closeMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('open');
+        if (overlay) overlay.classList.remove('open');
+        if (hamburger) { hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }
+        document.body.style.overflow = '';
+        mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+
+    if (hamburger)   hamburger.addEventListener('click', openMobileMenu);
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+    if (overlay)     overlay.addEventListener('click', closeMobileMenu);
+
+    // Close on nav link click
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && isMobileMenuOpen()) closeMobileMenu();
+    });
+
+    // ----------------------------------------------------------------
+    // Hero Slider â€” Morph Edition
+    // ----------------------------------------------------------------
+    const heroSlider = document.querySelector('.hero__slider');
+    if (heroSlider) {
+        const slides     = Array.from(heroSlider.querySelectorAll('.hero__slide'));
+        const dots       = heroSlider.querySelectorAll('.hero__dot');
+        const prevBtn    = heroSlider.querySelector('.hero__prev');
+        const nextBtn    = heroSlider.querySelector('.hero__next');
+        let current      = 0;
+        let isAnimating  = false;
+        let timer;
+
+        // Wrap each word of .hero__title in <span class="hw"> for word-morph
+        slides.forEach(slide => {
+            const titleEl = slide.querySelector('.hero__title');
+            if (!titleEl) return;
+            titleEl.innerHTML = titleEl.innerHTML
+                .split(/<br\s*\/?>/i)
+                .map(line =>
+                    line.trim().split(/\s+/)
+                        .filter(w => w.length)
+                        .map(w => `<span class="hw">${w}</span>`)
+                        .join(' ')
+                )
+                .join('<br>');
+        });
+
+        // Get the animatable text elements in order for a slide
+        function getTextEls(slide) {
+            const els = [];
+            const label   = slide.querySelector('.hero__label');
+            const words   = Array.from(slide.querySelectorAll('.hw'));
+            const desc    = slide.querySelector('.hero__desc');
+            const actions = slide.querySelector('.hero__actions');
+            if (label)   els.push(label);
+            els.push(...words);
+            if (desc)    els.push(desc);
+            if (actions) els.push(actions);
+            return els;
+        }
+
+        // Set element to "ready to animate in" state instantly
+        function setHidden(el) {
+            el.style.transition = 'none';
+            el.style.opacity    = '0';
+            el.style.transform  = 'translateY(32px)';
+            el.style.filter     = 'blur(8px)';
+        }
+
+        // Animate text elements into view with stagger
+        function animateIn(slide, baseDelay) {
+            const els = getTextEls(slide);
+            // Group: label (0), each word (1..N), desc (N+1), actions (N+2)
+            els.forEach((el, i) => {
+                setHidden(el);
+                const delay = baseDelay + i * 55;
+                setTimeout(() => {
+                    el.style.transition = [
+                        `opacity 0.55s cubic-bezier(0.215,0.61,0.355,1)`,
+                        `transform 0.55s cubic-bezier(0.215,0.61,0.355,1)`,
+                        `filter 0.5s ease`,
+                    ].join(', ');
+                    el.style.opacity   = '1';
+                    el.style.transform = 'translateY(0)';
+                    el.style.filter    = 'blur(0px)';
+                }, delay);
+            });
+        }
+
+        // Animate text elements out
+        function animateOut(slide) {
+            const els = getTextEls(slide).reverse(); // exit top â†’ bottom
+            els.forEach((el, i) => {
+                const delay = i * 30;
+                setTimeout(() => {
+                    el.style.transition = `opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease`;
+                    el.style.opacity   = '0';
+                    el.style.transform = 'translateY(-18px)';
+                    el.style.filter    = 'blur(5px)';
+                }, delay);
+            });
+        }
+
+        function showSlide(n) {
+            if (isAnimating || slides.length < 2) return;
+            const nextIdx = (n + slides.length) % slides.length;
+            if (nextIdx === current) return;
+            isAnimating = true;
+
+            const fromSlide = slides[current];
+            const toSlide   = slides[nextIdx];
+
+            // Bring incoming slide beneath outgoing, both visible during crossfade
+            toSlide.style.zIndex   = '3';
+            fromSlide.style.zIndex = '4';
+
+            // Pre-position incoming slide text as hidden
+            getTextEls(toSlide).forEach(setHidden);
+            toSlide.style.opacity = '1'; // visible but text is hidden
+
+            // Animate current slide out (text then bg)
+            animateOut(fromSlide);
+            setTimeout(() => {
+                fromSlide.style.transition = 'opacity 0.5s ease';
+                fromSlide.style.opacity    = '0';
+                fromSlide.classList.remove('active');
+            }, 250);
+
+            // Activate incoming slide and animate its text in
+            toSlide.classList.add('active');
+            animateIn(toSlide, 420); // start after bg has faded in
+
+            // Cleanup z-index after full transition
+            setTimeout(() => {
+                fromSlide.style.zIndex = '';
+                toSlide.style.zIndex   = '';
+                fromSlide.style.transition = '';
+                fromSlide.style.opacity    = '';
+                isAnimating = false;
+            }, 1100);
+
+            dots.forEach((d, i) => d.classList.toggle('active', i === nextIdx));
+            current = nextIdx;
+        }
+
+        function goNext() { showSlide(current + 1); }
+        function goPrev() { showSlide(current - 1); }
+        function startAuto() { timer = setInterval(goNext, 6000); }
+        function resetAuto() { clearInterval(timer); startAuto(); }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => { goPrev(); resetAuto(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { goNext(); resetAuto(); });
+        dots.forEach((d, i) => d.addEventListener('click', () => { showSlide(i); resetAuto(); }));
+
+        // Swipe support
+        let touchStartX = 0;
+        heroSlider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        heroSlider.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) { diff > 0 ? goNext() : goPrev(); resetAuto(); }
+        });
+
+        // Init first slide: animate text in on page load
+        animateIn(slides[0], 500);
+        startAuto();
+    }
+
+    // ----------------------------------------------------------------
+    // Scroll Reveal (AOS-style, pure JS)
+    // ----------------------------------------------------------------
+    function initScrollReveal() {
+        const els = document.querySelectorAll('[data-aos]');
+        if (!els.length) return;
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const delay = el.dataset.aosDelay ? parseInt(el.dataset.aosDelay) : 0;
+                    setTimeout(() => el.classList.add('aos-animate'), delay);
+                    io.unobserve(el);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        els.forEach(el => io.observe(el));
+    }
+    initScrollReveal();
+
+    // ----------------------------------------------------------------
+    // Counter animation (stat numbers)
+    // ----------------------------------------------------------------
+    function animateCount(el) {
+        const raw     = (el.textContent || '').trim();
+        const suffix  = raw.replace(/[\d]/g, '');
+        const target  = parseInt(raw.replace(/\D/g, ''), 10);
+        if (!target) return;
+
+        const duration = 1800;
+        const start    = performance.now();
+        function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased    = 1 - Math.pow(1 - progress, 3); // ease-out-cubic
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    const statsSection = document.querySelector('.hero__stats');
+    if (statsSection) {
+        const io2 = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    statsSection.querySelectorAll('.number').forEach(animateCount);
+                    io2.unobserve(e.target);
+                }
+            });
+        });
+        io2.observe(statsSection);
+    }
+
+    // ----------------------------------------------------------------
+    // Scroll-to-top button
+    // ----------------------------------------------------------------
+    const scrollTopBtn = document.getElementById('scroll-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('show', window.scrollY > 500);
+        }, { passive: true });
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // ----------------------------------------------------------------
+    // Gallery filter + animated show/hide
+    // ----------------------------------------------------------------
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-page__item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+
+            galleryItems.forEach((item, i) => {
+                const show = filter === 'all' || item.dataset.category === filter;
+                if (show) {
+                    item.style.display = '';
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        item.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, i * 40);
+                } else {
+                    item.style.transition = 'opacity 0.25s ease';
+                    item.style.opacity = '0';
+                    setTimeout(() => { item.style.display = 'none'; }, 260);
+                }
+            });
+        });
+    });
+
+    // ----------------------------------------------------------------
+    // Lightbox for gallery
+    // ----------------------------------------------------------------
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (!img) return;
+            openLightbox(img.src, img.alt);
+        });
+    });
+
+    function openLightbox(src, alt) {
+        const lb = document.createElement('div');
+        lb.setAttribute('role', 'dialog');
+        lb.setAttribute('aria-label', 'Image lightbox');
+        lb.style.cssText = [
+            'position:fixed', 'inset:0', 'background:rgba(0,0,0,0.92)',
+            'z-index:9999', 'display:flex', 'align-items:center',
+            'justify-content:center', 'padding:20px',
+            'opacity:0', 'transition:opacity 0.3s ease',
+        ].join(';');
+
+        lb.innerHTML = `
+            <div style="position:relative;max-width:90vw;max-height:90vh;text-align:center">
+                <img src="${src}" alt="${alt || ''}"
+                     style="max-width:100%;max-height:80vh;border-radius:12px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+                <button aria-label="Close"
+                        style="position:absolute;top:-16px;right:-16px;background:#fff;border:none;border-radius:50%;
+                               width:36px;height:36px;font-size:18px;cursor:pointer;display:flex;align-items:center;
+                               justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.3);line-height:1;
+                               transition:transform 0.2s,background 0.2s">Ã—</button>
+                ${alt ? `<p style="color:rgba(255,255,255,0.7);margin-top:12px;font-size:13px">${alt}</p>` : ''}
+            </div>`;
+
+        document.body.appendChild(lb);
+        requestAnimationFrame(() => { lb.style.opacity = '1'; });
+
+        const closeBtn = lb.querySelector('button');
+        closeBtn.addEventListener('mouseenter', () => { closeBtn.style.transform = 'scale(1.15)'; closeBtn.style.background = '#ff5252'; closeBtn.style.color = '#fff'; });
+        closeBtn.addEventListener('mouseleave', () => { closeBtn.style.transform = ''; closeBtn.style.background = '#fff'; closeBtn.style.color = ''; });
+
+        function closeLb() {
+            lb.style.opacity = '0';
+            setTimeout(() => lb.remove(), 300);
+        }
+        closeBtn.addEventListener('click', closeLb);
+        lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+        document.addEventListener('keydown', function esc(e) {
+            if (e.key === 'Escape') { closeLb(); document.removeEventListener('keydown', esc); }
+        });
+    }
+
+    // ----------------------------------------------------------------
+    // Flash auto-hide
+    // ----------------------------------------------------------------
+    document.querySelectorAll('[data-auto-hide]').forEach(el => {
+        setTimeout(() => {
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-10px)';
+            setTimeout(() => el.remove(), 500);
+        }, 4000);
+    });
+
+    // ----------------------------------------------------------------
+    // Form validation
+    // ----------------------------------------------------------------
+    document.querySelectorAll('form[data-validate]').forEach(form => {
+        form.addEventListener('submit', e => {
+            let valid = true;
+            form.querySelectorAll('[required]').forEach(field => {
+                const ok = field.value.trim() !== '';
+                field.style.borderColor = ok ? '' : '#ef4444';
+                if (!ok) {
+                    valid = false;
+                    field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
+                }
+            });
+            if (!valid) { e.preventDefault(); }
+        });
+    });
+
+    // ----------------------------------------------------------------
+    // Smooth scroll for anchor links
+    // ----------------------------------------------------------------
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                const top = target.getBoundingClientRect().top + window.scrollY - 90;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // ----------------------------------------------------------------
+    // Developer credit guard â€” ensure attribution is present
+    // ----------------------------------------------------------------
+    (function () {
+        const CREDIT_ID   = 'dev-credit-sk';
+        const CREDIT_HREF = 'https://shishirgtm.com.np';
+        const CREDIT_NAME = 'Samrat Katwal';
+
+        function ensureCredit() {
+            if (document.getElementById(CREDIT_ID)) return;
+            const el = document.createElement('div');
+            el.id        = CREDIT_ID;
+            el.className = 'dev-credit';
+            el.innerHTML = `Designed &amp; Developed by <a href="${CREDIT_HREF}" target="_blank" rel="noopener">${CREDIT_NAME}</a>`;
+            document.body.appendChild(el);
+        }
+        ensureCredit();
+        // Re-check after any DOM mutation (in case someone removes it)
+        const mo = new MutationObserver(ensureCredit);
+        mo.observe(document.body, { childList: true, subtree: false });
+    }());
+
+}());
+</script>
 </body>
 </html>
